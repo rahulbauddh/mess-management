@@ -1,0 +1,41 @@
+<%- include('partials/header.ejs',{ hide : true,user : true }) %>
+
+<div class="container">
+  <div class="row mx-0 justify-content-center">
+    <div class="col-md-7 col-lg-5 px-lg-2 col-xl-4 px-xl-0 px-xxl-3">
+      <form
+        action="/complaint"
+        method="POST"
+        class="w-100 rounded-1 p-4 border bg-white"
+        enctype="multipart/form-data"
+      >
+        <label class="d-block mb-4">
+          <img
+            style="height: 5rem; margin-left: 7rem"
+            src="images/protest.png"
+            alt="hi"
+          />
+          <span class="form-label d-block">Image</span>
+          <input name="image" type="file" class="form-control" />
+        </label>
+
+        <label class="d-block mb-4" for="l">
+          <span class="form-label d-block">What's wrong?</span>
+          <textarea
+            name="message"
+            class="form-control"
+            rows="3"
+            placeholder="Please describe your problem"
+            required
+          ></textarea>
+        </label>
+
+        <div class="mb-3">
+          <input id="l" class="btn btn-primary px-3 rounded-3" type="submit" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

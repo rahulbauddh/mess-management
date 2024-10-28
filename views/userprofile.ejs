@@ -1,0 +1,160 @@
+<%- include('partials/header.ejs',{ hide : true ,user : true}) %>
+
+<div class="main">
+
+  <!-- side pannel  -->
+  <div class="left">
+    <div class="side">
+      <a class="nav-link leave" href="/attendence">Attendence</a>
+    </div>
+    <div class="side">
+      <a class="nav-link" href="/complaint">complaint</a>
+    </div>
+    <div class="side">
+      <a class="nav-link" href="">Your plan</a>
+    </div>
+    <div class="side">
+      <a class="nav-link" href="/menu">User Menu</a>
+    </div>
+    <div class="side">
+      <a class="nav-link" href="/information">User's information</a>
+    </div>
+  </div>
+
+<!-- right user profile -->
+  <div class="right">
+
+    <!-- right upper for complaint data  -->
+    <!-- <div class="above"> -->
+      
+      <div class="upper">
+        <div class="leftupper">
+          <div class="let">
+            Complaint Overview
+          </div>
+            <div class="dataset">
+              
+            <div class="uppercontent">
+              <div class="leftdesign" style="background-color: lightsalmon"></div>
+              <div class="rightdesign">
+                Open
+                <div class="number"><%= openu %></div>
+              </div>
+            </div>
+
+            <div class="uppercontent">
+              <div class="leftdesign" style="background-color: lightskyblue"></div>
+              <div class="rightdesign">
+                in progress
+                <div class="number"><%= inprogressu %></div>
+              </div> 
+            </div>
+
+            <div class="uppercontent">
+              <div class="leftdesign" style="background-color: lightgreen"></div>
+              <div class="rightdesign">
+                Closed
+                <div class="number"><%= closeu %></div>
+              </div>              
+            </div>
+
+          </div>
+
+        </div>
+        <!-- for chart  -->
+        <div class="rightupper">
+          <div class="numberbtwchart"><%= inprogressu+closeu+openu %></div>
+          <div class="chart">
+            <canvas id="myChart"></canvas>
+          </div>
+        </div>
+        
+      </div>
+    <!-- </div> -->
+
+    <!-- right lower for complaint show -->
+    <div class="lower">
+      <div>
+        <form action="/userprofile" method="post">
+          <button
+            type="submit"
+            class="btn btn-light"
+            name="choose"
+            value="your"
+          >
+            Your Complaints
+          </button>
+          <button type="submit" class="btn btn-light" name="choose" value="All">
+            All
+          </button>
+        </form>
+      </div>
+      <div class="scrollable-container">
+        <% if (complaints.length > 0) { %> <% complaints.forEach(complaint => {
+        %>
+        <div class="complaints scrollable-content">
+          <div class="image">
+            <%if(complaint.image){%>
+            <img
+              class="complaint-image"
+              src="data:image/jpeg;base64,<%= complaint.img64 %>"
+            />
+            <%}else{%>
+            <img class="complaint-image" src="images/image.png" />
+            <%}%>
+          </div>
+          <div class="newcomplaint">
+            <div>
+              <p><%= complaint.complaint %></p>
+            </div>
+          </div>
+          <div class="vote">
+            <div>   
+              <button class="btn btn-light inc" data-value1="<%= complaint.id %>" data-value2="<%= complaint.upvote %>" data-value3="<%= complaint.like %>" data-value4="<%= id %>" data-value5="<%= complaint.dislike %>" data-value6="<%= complaint.downvote %>" >
+                <img class="thumb" src="images/like.png" />
+              </button>
+              <div class="upvote">  
+                <h5 id="like_<%= complaint.id %>"><%= complaint.upvote%></h5>
+              </div>
+            </div>
+            <div>
+              <button class="btn btn-light dec" data-value1="<%= complaint.id %>" data-value2="<%= complaint.downvote %>" data-value3="<%= complaint.dislike %>" data-value4="<%= id %>" data-value5="<%= complaint.like %>" data-value6="<%= complaint.upvote %>">
+                <img class="thumb" src="images/dislike.png" />
+              </button>
+              <div class="upvote">
+                <h5 id="dislike_<%= complaint.id %>"><%= complaint.downvote %></h5>
+              </div>
+            </div>
+            <%if(complaint.status == "in-progress"){%>
+            <div
+              class="status"
+              style="background-color: lightblue; color: darkblue"
+            >
+              <%= complaint.status %>
+            </div>
+            <%}else if(complaint.status == "close"){%>
+            <div
+              class="status"
+              style="background-color: lightgreen; color: darkgreen"
+            >
+              <%= complaint.status %>
+            </div>
+            <%}else{%>
+            <div
+              class="status"
+              style="background-color: lightsalmon; color: darkred"
+            >
+              <%= complaint.status %>
+            </div>
+            <%}%>
+          </div>
+        </div>
+        <% }); %> <% } else { %>
+        <p> No complaints found.</p>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>

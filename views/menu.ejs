@@ -1,0 +1,57 @@
+<% if (isAdmin) { %>
+    <%- include('partials/header.ejs',{ hide : true ,user : false}) %>
+<% } else { %>
+    <%- include('partials/header.ejs',{ hide : true ,user : true}) %> 
+<% } %>
+
+<div class="menu">
+  <h1 class="text-center my-4 menu_top">Mess Routine</h1>
+  <table>
+      <thead>
+          <tr>
+              <th>Day</th>
+              <th>Breakfast</th>
+              <th>Lunch</th>
+              <th>Dinner</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% routine.forEach(item => { %>
+              <tr>
+                  <td><%= item.day %></td>
+                  <td><%= item.breakfast %></td>
+                  <td><%= item.lunch %></td>
+                  <td><%= item.dinner %></td>
+              </tr>
+          <% }) %>
+      </tbody>
+  </table>
+  
+    <% if (isAdmin) { %>
+      <h2 class="text-center my-4 menu_top">Update Routine</h2>
+      <form action="/update-mess-routine" method="POST" class="menu_form">
+          <label for="day">Day:</label>
+          <select name="day" id="day">
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+              <option value="Sunday">Sunday</option>
+          </select>
+          
+          <label for="breakfast">Breakfast:</label>
+          <input type="text" name="breakfast" id="breakfast" required>
+          
+          <label for="lunch">Lunch:</label>
+          <input type="text" name="lunch" id="lunch" required>
+          
+          <label for="dinner">Dinner:</label>
+          <input type="text" name="dinner" id="dinner" required>
+          
+          <button type="submit">Update</button>
+      </form>
+    <% } %>
+    
+  </div>

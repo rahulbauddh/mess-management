@@ -1,0 +1,78 @@
+<%- include('partials/header.ejs',{ hide : true,user : false }) %>
+
+<div style="background-color: rgb(250, 229, 215); display: flex; justify-content: center; align-items: center; ">
+  <% if (complaints.length>0) { %> <% complaints.forEach(complaint => { %>
+  <div class="card shadow-sm view_complaint">
+    <% if (complaint.image) { %>
+      <img class="card-img-top" src="data:image/jpeg;base64,<%= complaint.img64 %>" alt="Card image cap">     
+    <%}else{%>
+      <img class="complaint-image" src="images/image.png" />
+      <%}%>
+    <div class="card-body">
+      <p class="card-title"><strong>Username :- </strong><%= complaint.username %></p>
+      <p class="card-title"><strong>Complaint :- </strong><%= complaint.complaint %></p>
+      <p class="card-title"><strong>User's Hostel :- </strong><%= complaint.hostel %></p>
+      <p class="card-title"><strong>complaint's Status :- </strong><%= complaint.status %></p>
+      <p class="card-title"><strong>complaint's Upvote :- </strong><%= complaint.upvote %></p>
+      <p class="card-title"><strong>complaint's Downvote :- </strong><%= complaint.downvote %></p>
+      <p class="card-title"><strong>Date Creation of Complaint :- </strong>
+        <script>
+          // Convert the passed timestamp into a human-readable format
+          const createdAt = new Date("<%= complaint.createdAt.toISOString() %>");
+          const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric', 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit', 
+            timeZoneName: 'short' 
+          };
+          document.write(createdAt.toLocaleString('en-US', options));
+        </script>
+      </p>
+      <% if (complaint.status!=="open") { %>
+        <p class="card-title"><strong>Last Updation of Complaint :- </strong>
+          <script>
+            // Convert the passed timestamp into a human-readable format
+            const updatedAt = new Date("<%= complaint.updatedAt.toISOString() %>");
+            const option = { 
+              weekday: 'long', 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric', 
+              hour: '2-digit', 
+              minute: '2-digit', 
+              second: '2-digit', 
+              timeZoneName: 'short' 
+            };
+            document.write(updatedAt.toLocaleString('en-US', option));
+          </script>
+        </p>
+      <% } %>
+      <% if (complaint.status==="open") { %>
+        <form action="/adminprofile" method="POST">
+          <input type="hidden" name="choose" value="tick1">
+          <input type="hidden" name="c_id" value="<%= complaint.id %>">
+          <p class="card-text"><strong>Change complaint status to in-progress :- </strong>
+            <button type="submit" class="btn btn-primary">Change</button>
+          </p>
+        </form>
+      <% } %>
+      <% if (complaint.status!=="close") { %>
+        <form action="/adminprofile" method="POST">
+          <input type="hidden" name="choose" value="tick2">
+          <input type="hidden" name="c_id" value="<%= complaint.id %>">
+          <p class="card-text"><strong>Change complaint status to done :- </strong>
+            <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Change</button>
+          </p>        
+        </form>
+      <% } %>
+    </div>
+  </div>
+  <% }); %>
+  <% } else { %>
+    <p>No Complaint found</p>
+    <% } %>
+</div>

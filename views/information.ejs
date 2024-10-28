@@ -1,0 +1,40 @@
+<% if (user[0].role==="admin") { %>
+  <%- include('partials/header.ejs',{ hide : true ,user : false}) %>
+<% } else { %>
+  <%- include('partials/header.ejs',{ hide : true ,user : true}) %> 
+<% } %>
+
+<div style="background-color:  #f4f4f4;">
+<div class="container mt-5" style="background-color: antiquewhite;">
+    
+    <div class="profile-info mt-4">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body" style="background-color: thistle;">
+              <h5 class="card-title">Personal Information</h5>
+              <p><strong>Name :- </strong> <%= user[0].name %></p>
+              <p><strong>Gender :-</strong> <%= user[0].gender %></p>
+              <p><strong>Hostel :-</strong> <%= user[0].hostel %></p>
+              <p><strong>Role :-</strong> <%= user[0].role %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card mb-4">
+            <div class="card-body" style="background-color: silver;">
+              <h5 class="card-title">Contact Information</h5>
+              <p><strong>Email :-</strong> <%= user[0].username %></p>
+              <p><strong>Registration No :-</strong> <%= user[0].registration %></p>
+              <% if (user[0].role!=="admin") { %>               
+                <p><strong>Total Complaint :-</strong> <%= user[0].tcomplaint %></p>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+  

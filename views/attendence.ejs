@@ -1,0 +1,13 @@
+<%- include('partials/header.ejs',{ hide : true ,user : true}) %>
+
+<h1>Your Attendance</h1>
+<form action="/" method="post">
+    <label for="date">Date:</label>
+    <input type="date" name="date" required><br>
+    <label for="ate">Ate:</label>
+    <select name="ate" required>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+    </select><br>
+    <button type="submit">Mark Attendance</button>
+</form>

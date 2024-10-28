@@ -1,0 +1,43 @@
+<%- include('partials/header.ejs',{hide: false,user : false}) %>
+
+<div class="card text-center" style="width: 350px;margin-left: 23rem;margin-top: 1rem; background-color: rgb(178, 199, 239);">
+    <div class="card-header h5 text-white bg-primary">Password Reset(3/3)</div>
+    <div class="card-body px-5">
+        
+        <form action="/reset" method="post">
+            <div class="form-outline mb-3">
+                <input
+                  type="password"
+                  id="form2Example7"
+                  name="newpassword"
+                  class="form-control form-control"
+                  required
+                />
+                <label class="form-label" for="form2Example7"
+                  >Enter New Password</label
+                >
+              </div>
+
+              <div class="form-outline mb-3">
+                <input
+                  type="password"
+                  id="form2Example27"
+                  name="repassword"
+                  class="form-control form-control"
+                  required
+                />
+                <label class="form-label" for="form2Example27"
+                  >Re-Enter Password</label
+                >
+              </div>
+              <p style="color: red"><%= error %></p>
+
+            <div class="pt-1 mb-3">
+              <button class="btn btn-primary" type="submit">
+                    Reset Password
+              </button>
+            </div>
+        </form>
+    </div>
+</div>
+

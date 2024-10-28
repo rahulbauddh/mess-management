@@ -1,0 +1,153 @@
+<%- include('partials/header.ejs',{hide: false,user : false}) %>
+<div style="background-color: #9a616d">
+  <section class="vh-110 gradient-custom">
+    <div class="container py-1 h-100">
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-10 col-lg-8 col-xl-7">
+          <div
+            class="card shadow-2-strong card-registration"
+            style="border-radius: 15px"
+          >
+            <div class="card-body p-4 p-md-5">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5" style="margin-left: 8rem">
+                Registration Form
+              </h3>
+              <form id="signupform" action="/signup" method="post">
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input
+                        type="text"
+                        id="form3Example1c"
+                        name="name"
+                        class="form-control form-control"
+                        pattern="[A-Za-z ]+" title="Only letters and space are allowed" 
+                        required
+                      />
+                      <label class="form-label" for="form3Example1c"
+                        >Your Name</label
+                      >
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <input
+                        type="text"
+                        id="Registration"
+                        name="registration"
+                        class="form-control form-control"
+                        pattern="[A-Za-z0-9]+" title="Only letters and numbers are allowed" 
+                        required
+                      />
+                      <label class="form-label" for="Registration"
+                        >Registration No</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4 d-flex align-items-center">
+                    <div class="form-outline">
+                      <input
+                        type="email"
+                        id="emailAddress"
+                        name="username"
+                        class="form-control form-control"
+                        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Email is not valid"
+                        autocomplete="email"
+                        required
+                      />
+                      <label class="form-label" for="emailAddress">Email</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <h6 class="mb-2 pb-1">Gender:</h6>
+
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="femaleGender"
+                        value="female"
+                        checked
+                      />
+                      <label class="form-check-label" for="femaleGender"
+                        >Female</label
+                      >
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="maleGender"
+                        value="male"
+                      />
+                      <label class="form-check-label" for="maleGender"
+                        >Male</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+                    <div class="form-outline">
+                      <input
+                        type="password"
+                        id="form3Example4c"
+                        name="password"
+                        class="form-control"
+                        required
+                      />
+                      <label class="form-label" for="form3Example4c"
+                        >Password</label
+                      >
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4 pb-2">
+                    <div class="form-outline">
+                      <input
+                        type="password"
+                        id="form3Example5c"
+                        class="form-control"
+                        required
+                      />
+                      <label class="form-label" for="form3Example5c"
+                        >Repeat your Password</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12">
+                    <select class="select form-control-md" name="hostel" required>
+                      <option value="1" disabled>Choose Hostel</option>
+                      <option value="raman">Raman</option>
+                      <option value="malviya">Malviya</option>
+                      <option value="tandan">Tandan</option>
+                    </select>
+                    <label class="form-label select-label">Choose Hostel</label>
+                  </div>
+                </div>
+                <span id="username-error" style="color: red; display: none;">Password and Re-password not match</span>
+                <div class="mt-4 pt-2">
+                  <button class="btn btn-dark btn-lg btn-block" type="submit">
+                    Register
+                  </button>
+                  <!-- <input class="btn btn-primary btn-lg" type="submit" value="Register" /> -->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%- include('partials/footer') %>

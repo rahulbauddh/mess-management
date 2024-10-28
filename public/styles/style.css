@@ -1,0 +1,363 @@
+.contain {
+  position: relative;
+}
+
+/* .image {
+  margin-right: 2rem;
+} */
+
+.block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.login-image {
+  border-radius: 1rem 0 0 1rem;
+  height: 100%;
+}
+.logo {
+  height: 2rem;
+  width: 2rem;
+  margin-right: 1rem;
+}
+
+.main {
+  display: flex;
+  height: 31.1rem;
+}
+.left {
+  width: 15%;
+  background-color: rgb(255, 234, 195);
+}
+.right {
+  width: 85%;
+}
+
+.above {
+  background-color: silver;
+  height: 25%;
+  display: flex;
+}
+
+.let {
+  padding-top: 1rem;
+  margin-left: 2rem;
+  font-size: large;
+  font-weight: 900;
+}
+
+.upper {
+  /* padding-top: 1rem; */
+  display: flex;
+  flex-direction: row;
+}
+.leftupper
+{
+  width: 80%;
+}
+.dataset
+{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+.numberbtwchart
+{
+  position: absolute;
+  margin-top: 4.2rem;
+  margin-left: 3.2rem;
+  font-size: x-large;
+  font-weight: 900;
+}
+.number
+{
+  font-size: x-large;
+  font-weight: 900;
+}
+.leftdesign {
+  width: 5%;
+}
+
+.rightdesign {
+  width: 90%;
+}
+
+.lower {
+  height: 75%;
+  padding: 2rem;
+}
+.lower-lower
+{
+  display: flex;
+}
+
+.lleft {
+  width: 25%;
+}
+
+.lright {
+  width: 75%;
+}
+
+.uppercontent {
+  width: 10rem;
+  text-align: center;
+  display: flex;
+  height: 3rem;
+}
+
+.adminabove {
+  display: flex;
+  background-color: #ccc;
+  height: 25%;
+  justify-content: space-around;
+}
+
+.area {
+  margin-left: 15rem;
+  height: 10rem;
+  width: 50%;
+  padding: 3px;
+}
+
+.side {
+  height: 2.5rem;
+  font-size: large;
+  padding: 1rem;
+  overflow-wrap: break-word;
+  /* margin-left: 1rem; */
+  /* margin: 1rem 1rem 0 0; */
+}
+
+.submit {
+  margin-left: 20rem;
+  background-color: wheat;
+  /* margin-bottom: 3rem; */
+  padding: 3px;
+}
+
+.comment {
+  margin-left: 20rem;
+  padding: 2px;
+  font-size: large;
+  background-color: bisque;
+  width: 15%;
+}
+
+.complaints {
+  display: flex;
+  flex-direction: row;
+}
+
+.newcomplaint {
+  /* height: 3rem; */
+  width: 55%;
+  /* width: 200px; Define the width as per your requirement */
+  /* border: 1px solid;Optional: To visualize the container */
+  padding: 10px; /* Optional: To add some padding inside the container */
+  box-sizing: border-box; 
+  margin-left: 1rem;  
+}
+
+.newcomplaint p {
+  word-wrap: break-word; /* Break long words and wrap them */
+  white-space: normal; /* Ensure normal white-space handling */
+  overflow: hidden; /* Hide overflow */
+}
+
+.vote {
+  display: flex;
+  justify-content: space-around;
+  width: 35%;
+}
+.thumb {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 20%;
+}
+.upvote {
+  text-align: center;
+}
+.complaint-image {
+  height: 3rem;
+  width: 3rem;
+}
+.line {
+  display: inline;
+  margin-left: 0.5rem;
+}
+
+/* scrollable window */
+.scrollable-container {
+  width: 100%; /* Set a fixed width or use a percentage */
+  height: 100%; /* Set a fixed height or use a percentage */
+  overflow: auto; /* Enable scrolling */
+  border: 1px solid #ccc; /* Optional: Add a border for visual clarity */
+}
+
+.scrollable-content {
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.user {
+  width: 20%;
+  padding: 10px; /* Optional: To add some padding inside the container */
+  box-sizing: border-box; 
+  margin-left: 1rem;  
+}
+
+.user p {
+  word-wrap: break-word; /* Break long words and wrap them */
+  white-space: normal; /* Ensure normal white-space handling */
+  overflow: hidden; /* Hide overflow */
+}
+
+.usercomplaint {
+  width: 55%;
+  padding: 10px; /* Optional: To add some padding inside the container */
+  box-sizing: border-box; 
+  margin-left: 1rem;  
+}
+
+.usercomplaint p {
+  word-wrap: break-word; /* Break long words and wrap them */
+  white-space: normal; /* Ensure normal white-space handling */
+  overflow: hidden; /* Hide overflow */
+}
+
+.tick1 {
+  width: 10%;
+}
+
+.tick2 {
+  width: 5%;
+}
+
+.llower {
+  display: flex;
+}
+.use
+{
+  width: 10rem;
+  margin-right: 3rem;
+  text-align: center;
+}
+.init
+{
+  margin-left: 14rem;
+}
+.done
+{
+  margin-left: 3.3rem;
+}
+
+
+
+
+
+/* status of the comlaint button style */
+.status {
+  height: 1rem;
+  width: 5rem;
+  text-align: center;
+  font-size: 60%;
+  margin-top: 1rem;
+  margin-left: 3rem;
+  font-weight: bolder;
+  border-radius: 10%;
+}
+.chart
+{
+  position: absolute; 
+  margin-top: 0.5rem;
+  height: 9rem;
+  width: 9rem;
+}
+
+#chart{
+  margin-left: 5rem;
+  width: 5rem;
+}
+
+
+/* detail of complaints */
+.view_complaint{
+  /* margin-left: 17rem; */
+  width: 30rem;
+}
+
+/* details of userid */
+.profile-info {
+  margin-top: 1rem;
+} 
+
+/* mess style */
+
+.menu{
+  font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.menu_top{
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background-color: #fff;
+}
+
+table, th, td {
+  vertical-align: middle;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+.menu_form{
+  background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+}
+
+.menu_form label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.menu_form input, .menu_form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.menu_form button {
+  padding: 10px 20px;
+  background-color: #5cb85c;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu_form button:hover {
+  background-color: #4cae4c;
+}

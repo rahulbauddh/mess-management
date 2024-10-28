@@ -1,0 +1,86 @@
+<%- include('partials/header.ejs',{hide: false,user : false}) %>
+<section class="vh-80" style="background-color: #9a616d">
+  <div class="container py-1 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-md-8 col-lg-8">
+        <div class="card" style="border-radius: 1rem">
+          <div class="row g-5">
+            <div
+              class="col-md-6 d-none d-md-block"
+              style="background-color: #ffe4de"
+            >
+              <img
+                src="images/login.png"
+                alt="login form"
+                class="img-fluid login-image object-fit-contain rounded"
+              />
+            </div>
+            <div class="col-md-5">
+              <div class="card-body p-3 p-lg-2 text-black">
+                <form id="loginpage" action="/login" method="post">
+                  <div class="d-flex align-items-center mb-2 pb-2.5">
+                    <i
+                      class="fas fa-cubes fa-lg me-2"
+                      style="color: #ff6219"
+                    ></i>
+                  </div>
+
+                  <h3
+                    class="fw-normal mb-2 pb-2"
+                    style="letter-spacing: 1px; margin-left: 4rem"
+                  >
+                    Sign In
+                  </h3>
+
+                  <div class="form-outline mb-3">
+                    <input
+                      type="email"
+                      id="form2Example17"
+                      name="username"
+                      class="form-control form-control"
+                      autocomplete="on"
+                      pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" title="Email is not valid"
+                      required
+                    />
+                    <label class="form-label" for="form2Example17"
+                      >Email address</label>
+                  </div>
+
+                  <div class="form-outline mb-3">
+                    <input
+                      type="password"
+                      id="form2Example27"
+                      name="password"
+                      class="form-control form-control"
+                      autocomplete="on"
+                      required
+                    />
+                    <label class="form-label" for="form2Example27"
+                      >Password</label
+                    >
+                  </div>
+
+                  <div class="pt-1 mb-3">
+                    <button class="btn btn-dark btn-lg btn-block" type="submit">
+                      Login
+                    </button>
+                  </div>
+                  <p style="color: red"><%= error %></p>
+
+                  <a class="small text" href="/forgot" style="color: #393f81; text-decoration: none;">Forgot password</a>
+                  <p class="mb-3 pb-lg-1" style="color: #393f81">
+                    Don't have an account?
+                    <a href="/signup" style="color: #393f81; text-decoration: none;">Register here</a>
+                  </p>
+                  <a href="#!" class="small text-muted" style="text-decoration: none;">Terms of use.</a>
+                  <a href="#!" class="small text-muted" style="text-decoration: none;">Privacy policy</a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include('partials/footer') %>

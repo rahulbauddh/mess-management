@@ -1,0 +1,116 @@
+<%- include('partials/header.ejs',{ hide : true,user : false }) %>
+
+<div class="main">
+
+  <!-- left side bar -->
+  <div class="left">
+    <div class="side">
+      <a class="nav-link" href="">Attendence</a>
+    </div>
+    <!-- <div class="side">
+      <a class="nav-link" href="">complaint</a>
+    </div> -->
+    <div class="side">
+      <a class="nav-link" href="/menu">Change Menu</a>
+    </div>
+    <div class="side">
+      <a class="nav-link" href="/information">Admin's information</a>
+    </div>
+  </div>
+
+  <!-- right whole page of the page -->
+  <div class="right">
+
+      <!-- upper content of the right half -->
+    <div class="upper">
+      <div class="leftupper">
+        <div class="let">
+          Complaint Overview
+        </div>
+
+        <div class="dataset">
+
+          <div class="uppercontent">
+            <div class="leftdesign" style="background-color: lightsalmon"></div>
+            <div class="rightdesign">
+              open
+              <div class="number"><%= opena %></div>
+            </div>
+          </div>
+
+          <div class="uppercontent">
+            <div class="leftdesign" style="background-color: lightskyblue"></div>
+            <div class="rightdesign">
+              in progress
+              <div class="number"><%= inprogressa %></div>
+            </div> 
+          </div>
+
+          <div class="uppercontent">
+            <div class="leftdesign" style="background-color: lightgreen"></div>
+            <div class="rightdesign">
+              closed
+              <div class="number"><%= closea %></div>
+            </div>            
+          </div>
+          
+        </div>
+
+      </div>
+      <!-- for chart  -->
+      <div class="rightupper">
+        <div class="numberbtwchart"><%= inprogressa+closea+opena %></div>
+        <div class="chart">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- lower part of the right page -->
+    <div class="lower">
+      <div>
+        <form action="/adminprofile" method="post">
+            <button class="btn btn-light" type="submit" value="all" name="change">Open</button>
+            <button class="btn btn-light" type="submit" value="initiated" name="change">Initiated</button>
+            <button class="btn btn-light" type="submit" value="completed" name="change">Completed</button>
+        </form>
+      </div>
+
+
+      <div class="llower" style="background-color: rgb(250, 238, 222);;">
+        <div class="use">User</div>
+        <div class="use">User's Complaint</div>
+      </div>
+
+
+      <div class="scrollable-container" style="height: 90%;">
+        <% if (complaints.length>0) { %> <% complaints.forEach(complaint => { %>
+        <div class="complaints scrollable-content">
+          <div class="user">
+            <div>
+              <p><%= complaint.username %></p>
+            </div>
+          </div>
+          <div class="usercomplaint">
+            <div>
+              <p><%= complaint.complaint %></p>
+            </div>
+          </div>
+
+          <form action="/detail" method="POST">
+            <input type="hidden" name="userId" value="<%= complaint.id %>">
+            <button type="submit" class="btn btn-primary" style="height: 3rem; margin-top: 1rem; margin-left: 1rem;">View Details</button>
+          </form>
+            
+        </div>
+        <% }); %>
+        <% } else { %>
+          <p>No Complaint found</p>
+          <% } %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer.ejs') %>
